@@ -61,7 +61,8 @@ app.post('/contact', async (req, res) => {
   try {
     await transporter.sendMail({
       from: `"OpenClaw Setup" <${process.env.FROM_EMAIL || 'tim@ki-katapult.de'}>`,
-      to: process.env.TO_EMAIL || 'tim@ki-katapult.de',
+      to: process.env.TO_EMAIL || 'bot@ki-katapult.de',
+      cc: process.env.CC_EMAIL || 'tim@ki-katapult.de',
       replyTo: email,
       subject: `OpenClaw Setup Anfrage von ${name}`,
       text: body
